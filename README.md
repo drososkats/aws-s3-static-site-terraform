@@ -1,19 +1,19 @@
 # 🚀 AWS S3 Static Website with Terraform
 
-This project provisions a public S3 bucket on AWS and hosts a static website using **Terraform**, following best practices for modern Infrastructure as Code (IaC). It is a practical Cloud Engineering mini project aligned with real-world job responsibilities (e.g., Cloud Engineer, DevOps Engineer).
+This project provisions a public S3 bucket on AWS and hosts a static website using **Terraform**, following best practices for modern Infrastructure as Code (IaC). It is designed as a **Cloud Engineer portfolio project**, demonstrating real-world skills in **Infrastructure as Code (IaC)**, **AWS services**, and **cloud automation**.  
 
 ---
 
 ## 📌 Project Overview
 
 - ✅ Provisions an **AWS S3 bucket**
-- ✅ Enables **static website hosting**
-- ✅ Uploads a basic `index.html` automatically via Terraform
-- ✅ Applies **public read access** through proper bucket policy
-- ✅ Uses `aws_s3_bucket_website_configuration` (modern method)
-- ✅ Outputs a working **website endpoint**
+- ✅ Configure **static website hosting**
+- ✅ Deploy a basic `index.html` automatically via Terraform
+- ✅ Apply a secure **public read access** through proper bucket policy
+- ✅ Uses the modern `aws_s3_bucket_website_configuration` resource
+- ✅ Output a **public website endpoint** for easy access
 
-> Built to demonstrate hands-on skills in cloud infrastructure provisioning using Terraform.
+> This project replicates a **real-world Cloud Engineer task**: hosting static content in the cloud in an automated, secure, and repeatable way.
 
 ---
 
@@ -33,13 +33,17 @@ This project provisions a public S3 bucket on AWS and hosts a static website usi
 ```text
 aws-s3-static-site-terraform/
 │
-├── terraform/
-│ ├── main.tf # S3 bucket, website config, object upload
+├── terraform/ #Terraform configuration files
+│ ├── main.tf # S3 bucket, website config, object upload, policy
 │ ├── provider.tf # AWS provider with profile & region
 │ ├── variables.tf # Variables used in provisioning
 │ └── outputs.tf # Website endpoint output
 │
 ├── index.html # Web page content
+├── screenshots/
+  ├── aws-s3-static-website-architecture.png
+  └── aws-s3-static-website-deployed-via-terraform.png
+
 ├── README.md # Project documentation
 └── LICENSE # MIT License
 
@@ -47,7 +51,16 @@ aws-s3-static-site-terraform/
 
 ---
 
-## 🧪 How to Use
+## 🏗️ Architecture Diagram
+
+* Terraform provisions AWS resources in region: **eu-central-1**, and in availability zone: **eu-central-1a**.
+* An S3 bucket is created and configured for static website hosting.
+* A bucket policy applies public read access for website files only.
+* Users access the site over HTTP/HTTPS, served directly from Amazon S3.
+
+---
+
+## 🧪 How to Deploy
 
 ### 1. Prerequisites
 
@@ -62,3 +75,15 @@ Update `variables.tf` if needed, or override on CLI:
 ```bash
 terraform init
 terraform apply -var="bucket_name=my-unique-bucket-name"
+
+```
+
+---
+
+## ✅ Skills Demonstrated
+
+* AWS Cloud Infrastructure (S3, IAM, Policies)
+* Infrastructure as Code (IaC) with Terraform
+* Secure configuration (bucket policy for public read)
+* Automation of provisioning & deployment
+* Documentation & Architecture diagramming
